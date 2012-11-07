@@ -21,9 +21,13 @@ namespace _2.surface_on_xaml
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private _2_sis_component.D2DComponent _d2dComponent;
+
         public MainPage()
         {
             this.InitializeComponent();
+
+            _d2dComponent = new _2_sis_component.D2DComponent(300, 300, true);
         }
 
         /// <summary>
@@ -33,6 +37,14 @@ namespace _2.surface_on_xaml
         /// property is typically used to configure the page.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            var imageBrush = new ImageBrush();
+            imageBrush.ImageSource = _d2dComponent;
+            rectangle.Fill = imageBrush;
+
+            _d2dComponent.BeginDraw();
+            _d2dComponent.Clear(Windows.UI.Colors.Bisque);
+            _d2dComponent.FillRectangle(50, 50, 50, 50, Windows.UI.Colors.Aqua);
+            _d2dComponent.EndDraw();
         }
     }
 }
