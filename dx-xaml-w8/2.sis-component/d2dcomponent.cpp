@@ -97,7 +97,7 @@ void D2DComponent::BeginDraw(Windows::Foundation::Rect updateRect)
 	{
 		ThrowIfFailed(beginDrawHR);
 	}
-	
+
 
 	Microsoft::WRL::ComPtr<ID2D1Bitmap1> bitmap;
 	ThrowIfFailed(_d2dDeviceContext->CreateBitmapFromDxgiSurface(surface.Get(), nullptr, &bitmap));

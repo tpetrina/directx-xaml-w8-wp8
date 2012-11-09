@@ -43,7 +43,21 @@ namespace _2.surface_on_xaml
 
             _d2dComponent.BeginDraw();
             _d2dComponent.Clear(Windows.UI.Colors.Bisque);
-            _d2dComponent.FillRectangle(50, 50, 50, 50, Windows.UI.Colors.Aqua);
+
+            var random = new Random();
+            for (int i = 0; i < 20; ++i)
+            {
+                _d2dComponent.FillRectangle(
+                    random.Next(0, 250),
+                    random.Next(0, 250),
+                    50, 50,
+                    Windows.UI.Color.FromArgb(
+                        (byte)255,
+                        (byte)random.Next(0, 255),
+                        (byte)random.Next(0, 255),
+                        (byte)random.Next(0, 255)));
+            }
+
             _d2dComponent.EndDraw();
         }
     }

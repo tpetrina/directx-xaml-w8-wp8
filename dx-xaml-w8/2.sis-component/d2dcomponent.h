@@ -2,16 +2,15 @@
 
 namespace _2_sis_component
 {
-	
 	public ref class D2DComponent sealed : Windows::UI::Xaml::Media::Imaging::SurfaceImageSource
-    {
+	{
 	private protected:
 		Microsoft::WRL::ComPtr<ISurfaceImageSourceNative>	_sisNative;
-		
+
 		Microsoft::WRL::ComPtr<ID3D11Device>				_d3dDevice;
 		Microsoft::WRL::ComPtr<ID3D11DeviceContext>			_d3dContext;
 		Microsoft::WRL::ComPtr<IDXGIDevice>					_dxgiDevice;
-	
+
 		Microsoft::WRL::ComPtr<ID2D1Device>					_d2dDevice;
 		Microsoft::WRL::ComPtr<ID2D1DeviceContext>			_d2dDeviceContext;
 
@@ -22,7 +21,7 @@ namespace _2_sis_component
 		void CreateDeviceIndependentResources();
 		void CreateDeviceResources();
 
-    public:
+	public:
 		D2DComponent(int pixelWidth, int pixelHeight, bool isOpaque);
 
 		void BeginDraw(Windows::Foundation::Rect updateRect);
@@ -37,5 +36,5 @@ namespace _2_sis_component
 		void SetDpi(float dpi);
 
 		void Clear(Windows::UI::Color color);
-    };
+	};
 }
